@@ -1,5 +1,6 @@
 import React from "react";
 
+// A search box that gets user input and updates a value
 const SearchBox = (props) => (
   <div className="input-group rounded search-bar">
     <input
@@ -11,9 +12,6 @@ const SearchBox = (props) => (
         props.setValue(event.target.value);
       }}
     />
-    {/* <span className="input-group-text border-0" id="search-addon">
-      <i className="fas fa-search"></i>
-    </span> */}
   </div>
 );
 

@@ -1,11 +1,12 @@
 import React from "react";
-import MovieCard from "./MovieCard";
+import Card from "./Card";
 
+// Movie ist component that displays all movies from the search using the Card component
 const MovieList = (props) => {
   return (
     <>
       {props.movies.map((movie) => (
-        <MovieCard
+        <Card
           key={movie.imdbID}
           img={
             movie.Poster !== "N/A"
@@ -13,7 +14,7 @@ const MovieList = (props) => {
               : "https://www.reelviews.net/resources/img/default_poster.jpg"
           }
           title={movie.Title}
-          text={movie.Year}
+          content={movie.Year}
           label="Watch"
         />
       ))}

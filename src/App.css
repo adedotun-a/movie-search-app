@@ -38,6 +38,7 @@ p {
   padding-top: 1rem;
 }
 
+
 .poster-img {
   width: 12rem;
   height: 18rem;
@@ -47,11 +48,15 @@ p {
 .btn-theme {
   background-color: #3e497a;
   color: #f0f0f0;
+  position: relative;
+  transition: transform 0.3s;
 }
 
 .btn-theme:hover {
   background-color: #21325e;
   color: #f0f0f0;
+  cursor: pointer;
+  transform: scale(1.1);
 }
 
 .search-bar {

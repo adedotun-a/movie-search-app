@@ -8,6 +8,24 @@ import Heading from "./components/Heading";
 function App() {
   const [movies, setMovies] = useState([]);
   const [searchTitle, setSearchTitle] = useState("Rogue One");
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    window.addEventListener(
+      "resize",
+      () => {
+        const ismobile = window.innerWidth < 768;
+        if (ismobile !== isMobile) setIsMobile(ismobile);
+      },
+      false
+    );
+  }, [isMobile]);
+
+  // return (
+  //   <p className={`${isMobile ? "mobile-class" : "non-mobile-class"}`}>
+  //     Your text here
+  //   </p>
+  // );
 
   const searchMovie = async () => {
     const searchUrl = `https://www.omdbapi.com/?s=${searchTitle}&apikey=${process.env.REACT_APP_OMDB_API_KEY}`;
@@ -15,18 +33,7 @@ function App() {
     const response = await fetch(searchUrl);
     const responseJson = await response.json();
 
-    responseJson.Search
-      ? setMovies(responseJson.Search)
-      : setMovies([
-          {
-            Title: "Rogue One: A Star Wars Story",
-            Year: "2016",
-            imdbID: "tt3748528",
-            Type: "movie",
-            Poster:
-              "https://m.media-amazon.com/images/M/MV5BMjEwMzMxODIzOV5BMl5BanBnXkFtZTgwNzg3OTAzMDI@._V1_SX300.jpg",
-          },
-        ]);
+    responseJson.Search ? setMovies(responseJson.Search) : setMovies([]);
   };
 
   useEffect(() => {
@@ -36,10 +43,19 @@ function App() {
 
   return (
     <>
-      <div className="container-fluid poster-carousel">
-        <Heading title="Moogle" />
-        <SearchBox value={searchTitle} setValue={setSearchTitle} />
-        <div className="row  justify-content-center">
+      <div className=" moogle container-fluid">
+        <div>
+          <Heading title="Moogle" />
+          <SearchBox value={searchTitle} setValue={setSearchTitle} />
+        </div>
+
+        <div
+          className={
+            isMobile
+              ? "row movie-list justify-content-center"
+              : "row movie-list"
+          }
+        >
           <MovieList movies={movies} />
         </div>
       </div>

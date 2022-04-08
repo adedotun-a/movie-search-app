@@ -22,14 +22,6 @@ p {
   font-size: 0.9rem;
 }
 
-.poster-carousel {
-  margin: auto;
-}
-
-.container-fluid {
-  margin: 0 auto;
-}
-
 .card {
   width: 14rem;
   color: #05103a;
@@ -37,7 +29,6 @@ p {
   text-align: center;
   padding-top: 1rem;
 }
-
 
 .poster-img {
   width: 12rem;
@@ -65,6 +56,14 @@ p {
 }
 
 /* Responsivenes */
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .poster-img {
+    width: 10rem;
+    height: 16rem;
+    margin: 0 auto;
+  }
+}
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
@@ -80,7 +79,7 @@ p {
     margin: 4rem;
   }
 
-  .poster-carousel > .row {
+  .moogle > .row {
     overflow-x: auto;
     flex-wrap: nowrap;
   }

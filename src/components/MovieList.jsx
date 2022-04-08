@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./Card";
 
-// Movie ist component that displays all movies from the search using the Card component
+// Movie list component that displays all movies from the search using the Card component
 const MovieList = (props) => {
   return (
     <>

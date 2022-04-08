@@ -2,7 +2,7 @@ import React from "react";
 
 // Card component that dispalys images, titles, content and a button
 const Card = (props) => (
-  <div className="card d-flex justify-content-start m-3">
+  <div className="card d-flex justify-content-center m-3">
     <img
       src={props.img}
       className="card-img-top poster-img ml-auto"

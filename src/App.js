@@ -22,14 +22,13 @@ function App() {
     searchMovie();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchTitle]);
-  // console.log(process.env);
 
   return (
     <>
       <div className="container-fluid poster-carousel">
         <Heading title="Moogle" />
         <SearchBox value={searchTitle} setValue={setSearchTitle} />
-        <div className="row">
+        <div className="row  justify-content-center">
           <MovieList movies={movies} />
         </div>
       </div>

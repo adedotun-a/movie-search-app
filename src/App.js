@@ -21,12 +21,6 @@ function App() {
     );
   }, [isMobile]);
 
-  // return (
-  //   <p className={`${isMobile ? "mobile-class" : "non-mobile-class"}`}>
-  //     Your text here
-  //   </p>
-  // );
-
   const searchMovie = async () => {
     const searchUrl = `https://www.omdbapi.com/?s=${searchTitle}&apikey=${process.env.REACT_APP_OMDB_API_KEY}`;
 
@@ -49,13 +43,7 @@ function App() {
           <SearchBox value={searchTitle} setValue={setSearchTitle} />
         </div>
 
-        <div
-          className={
-            isMobile
-              ? "row movie-list justify-content-center"
-              : "row movie-list"
-          }
-        >
+        <div className={isMobile ? "row justify-content-center" : "row"}>
           <MovieList movies={movies} />
         </div>
       </div>

@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import { useEffect, useState } from "react";
+import MovieList from "./components/MovieList";
+import SearchBox from "./components/SearchBox";
+import Heading from "./components/Heading";
 
 function App() {
+  const [movies, setMovies] = useState([]);
+  const [searchTitle, setSearchTitle] = useState("Rogue One");
+
+  const searchMovie = async () => {
+    const searchUrl = `http://www.omdbapi.com/?s=${searchTitle}&apikey=${process.env.REACT_APP_OMDB_API_KEY}`;
+
+    const response = await fetch(searchUrl);
+    const responseJson = await response.json();
+
+    responseJson.Search ? setMovies(responseJson.Search) : setMovies([]);
+  };
+
+  useEffect(() => {
+    searchMovie();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchTitle]);
+  // console.log(process.env);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="container-fluid poster-carousel">
+        <Heading title="Moogle" />
+        <SearchBox value={searchTitle} setValue={setSearchTitle} />
+        <div className="row">
+          <MovieList movies={movies} />
+        </div>
+      </div>
+    </>
   );
 }
 

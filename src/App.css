@@ -1,38 +1,87 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+body {
+  background: #21325e;
+  background-image: url("https://www.transparenttextures.com/patterns/bright-squares.png");
   color: white;
+  font-family: "Montserrat", sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+header h1 {
+  color: #fff;
+  font-family: "Bebas Neue", cursive;
+  font-size: 4rem;
+  text-align: center;
+  margin: 2.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+h5 {
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+p {
+  font-size: 0.9rem;
+}
+
+.poster-carousel {
+  margin: auto;
+}
+
+.container-fluid {
+  margin: 0 auto;
+}
+
+.card {
+  width: 14rem;
+  color: #05103a;
+  background-color: #f0f0f0;
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.poster-img {
+  width: 12rem;
+  height: 18rem;
+  margin: 0 auto;
+}
+
+.btn-theme {
+  background-color: #3e497a;
+  color: #f0f0f0;
+}
+
+.btn-theme:hover {
+  background-color: #21325e;
+  color: #f0f0f0;
+}
+
+.search-bar {
+  width: 20rem;
+  margin: 2rem auto;
+}
+
+/* Responsivenes */
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .search-bar {
+    width: 25rem;
+    margin: 3rem auto;
   }
-  to {
-    transform: rotate(360deg);
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  header h1 {
+    font-size: 6rem;
+    margin: 4rem;
+  }
+
+  .poster-carousel > .row {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+  }
+
+  .search-bar {
+    width: 35rem;
+    margin: 5rem auto;
   }
 }
